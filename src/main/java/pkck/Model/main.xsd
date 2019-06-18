@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:main="http://www.przyklad.pl/main" targetNamespace="http://www.przyklad.pl/main">
+    <element name="document">
+        <complexType>
+            <sequence>
+                <element name="authors" type="main:authors" minOccurs="1" maxOccurs="1" />
+                <element name="racePrefs" type="main:racePrefs" minOccurs="1" maxOccurs="1" />
+                <element name="typePrefs" type="main:typePrefs" minOccurs="1" maxOccurs="1" />
+                <element name="itemPrefs" type="main:itemPrefs" minOccurs="1" maxOccurs="1" />
+                <element name="creatures" type="main:creatures" minOccurs="1" maxOccurs="1" />
+            </sequence>
+        </complexType>
+        <key name="raceId">
+            <selector xpath="./racePrefs/racePref" />
+            <field xpath="@raceId" />
+        </key>
+        <keyref name="raceIdRef" refer="main:raceId">
+            <selector xpath="./creatores/creature" />
+            <field xpath="@raceId" />
+        </keyref>
+    </element>
+    
+    <complexType name="authors">
+        <sequence>
+            <element name="author" maxOccurs="2" type="main:authorFinal" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="racePrefs">
+        <sequence>
+            <element name="racePref" minOccurs="1" maxOccurs="unbounded" type="main:racePrefType" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="typePrefs">
+        <sequence>
+            <element name="typePref" minOccurs="1" maxOccurs="unbounded" type="main:typePrefType" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="itemPrefs">
+        <sequence>
+            <element name="itemPref" minOccurs="1" maxOccurs="unbounded" type="main:itemPrefType" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="creatures">
+        <sequence>
+            <element name="creature" type="main:creature" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="creature">
+        <sequence>
+            <element name="nick" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="race" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="type" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="level" type="integer" minOccurs="1" maxOccurs="1" />
+            <element name="money" type="main:money" minOccurs="1" maxOccurs="1" />
+            <element name="creationDate" type="date" minOccurs="1" maxOccurs="1" />
+            <element name="equipment" type="main:equipment" minOccurs="1" maxOccurs="1" />
+        </sequence>
+        <attribute name="raceId" type="string" use="required" />
+        <attribute name="typeId" type="string" use="required" />
+        <attributeGroup ref="main:teamAttributes" />
+    </complexType>
+    
+    <complexType name="equipment">
+        <sequence minOccurs="0">
+            <element name="item" maxOccurs="unbounded" minOccurs="0" type="main:equipmentType" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="racePrefType">
+        <attribute name="raceId" type="string" />
+        <attribute name="name" type="string" />
+    </complexType>
+    
+    <simpleType name="authorNameType">
+        <restriction base="string">
+            <pattern value="[A-Z]([a-z])+" />
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="indexNumberType">
+        <restriction base="integer">
+            <pattern value="[0-9]{6}" />
+        </restriction>
+    </simpleType>
+    
+    <complexType name="author">
+        <sequence>
+            <element name="first_name" type="main:authorNameType" />
+            <element name="last_name" type="main:authorNameType" />
+            <element name="index_number" type="main:indexNumberType" />
+            <element name="birthday" type="date" minOccurs="0" maxOccurs="1" />
+        </sequence>
+    </complexType>
+    
+    <group name="nameGroup">
+        <sequence>
+            <element name="first_name" type="main:authorNameType" />
+            <element name="last_name" type="main:authorNameType" />
+        </sequence>
+    </group>
+    
+    <complexType name="authorFinal">
+        <sequence>
+            <group ref="main:nameGroup" />
+            <element name="index_number" type="main:indexNumberType" />
+            <element name="birthday" type="date" minOccurs="0" maxOccurs="1" />
+        </sequence>
+    </complexType>
+    
+    <complexType name="typePrefType">
+        <attribute name="typeId" type="string" />
+        <attribute name="name" type="string" />
+    </complexType>
+    
+    <complexType name="itemPrefType">
+        <attribute name="itemId" type="string" />
+        <attribute name="itemType" type="string" use="required" />
+        <attribute name="name" type="string" />
+    </complexType>
+    
+    <complexType name="equipmentType">
+        <sequence>
+            <element type="byte" name="amount" />
+            <element type="string" name="name" />
+        </sequence>
+        <attribute type="string" name="itemId" />
+    </complexType>
+    
+    <simpleType name="team">
+        <restriction base="string">
+            <enumeration value="czerwony" />
+            <enumeration value="niebieski" />
+            <enumeration value="zielony" />
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="money">
+        <restriction base="decimal">
+            <fractionDigits value="2" />
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="teamRole">
+        <restriction base="string">
+            <enumeration value="boss" />
+            <enumeration value="noob" />
+        </restriction>
+    </simpleType>
+    
+    <attributeGroup name="teamAttributes">
+        <attribute name="team" type="main:team" />
+        <attribute name="role" type="main:teamRole" />
+    </attributeGroup>
+</schema>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<main:document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.przyklad.pl/main main.xsd" xmlns:main="http://www.przyklad.pl/main">
+    <authors>
+        <author>
+            <first_name>Antoni</first_name>
+            <last_name>Messyasz</last_name>
+            <index_number>210273</index_number>
+            <birthday>2002-04-08</birthday>
+        </author>
+        <author>
+            <first_name>Artur</first_name>
+            <last_name>Przybysz</last_name>
+            <index_number>210301</index_number>
+            <birthday>1995-04-29</birthday>
+        </author>
+    </authors>
+    <racePrefs>
+        <racePref raceId="_r1" name="human" />
+        <racePref raceId="_r2" name="orc" />
+        <racePref raceId="_r3" name="elf" />
+        <racePref raceId="_r4" name="goblin" />
+        <racePref raceId="_r5" name="dwarf" />
+        <racePref raceId="_r6" name="creature" />
+    </racePrefs>
+    <typePrefs>
+        <typePref typeId="_c0" name="monster" />
+        <typePref typeId="_c1" name="paladin" />
+        <typePref typeId="_c2" name="warrior" />
+        <typePref typeId="_c3" name="mage" />
+        <typePref typeId="_c4" name="archer" />
+        <typePref typeId="_c5" name="scout" />
+        <typePref typeId="_c6" name="war-mage" />
+        <typePref typeId="_c7" name="berserker" />
+    </typePrefs>
+    <itemPrefs>
+        <itemPref itemId="_i0" itemType="weapon" name="hand" />
+        <itemPref itemId="_i1" itemType="weapon" name="sword" />
+        <itemPref itemId="_i2" itemType="weapon" name="bow" />
+        <itemPref itemId="_i3" itemType="weapon" name="rod" />
+        <itemPref itemId="_i4" itemType="weapon" name="crossbow" />
+        <itemPref itemId="_i5" itemType="weapon" name="zweihander" />
+        <itemPref itemId="_i6" itemType="weapon" name="rock" />
+        <itemPref itemId="_i7" itemType="food" name="apple" />
+        <itemPref itemId="_i8" itemType="food" name="bread" />
+        <itemPref itemId="_i9" itemType="food" name="water" />
+        <itemPref itemId="_i10" itemType="food" name="cake" />
+        <itemPref itemId="_i11" itemType="food" name="peach" />
+        <itemPref itemId="_i12" itemType="food" name="beer" />
+        <itemPref itemId="_i13" itemType="armor" name="legs" />
+        <itemPref itemId="_i14" itemType="armor" name="legs" />
+        <itemPref itemId="_i15" itemType="armor" name="head" />
+        <itemPref itemId="_i16" itemType="armor" name="body" />
+        <itemPref itemId="_i17" itemType="armor" name="boots" />
+        <itemPref itemId="_i18" itemType="weapon" name="knife" />
+    </itemPrefs>
+    <creatures>
+        <creature raceId="_r1" typeId="_c2" team="czerwony" role="boss">
+            <nick>Johny</nick>
+            <race>human</race>
+            <type>warrior</type>
+            <level>15</level>
+            <money>650.00</money>
+            <creationDate>2019-03-19</creationDate>
+            <equipment>
+                <item itemId="_i1">
+                    <amount>1</amount>
+                    <name>sword</name>
+                </item>
+                <item itemId="_i14">
+                    <amount>1</amount>
+                    <name>legs</name>
+                </item>
+                <item itemId="_i15">
+                    <amount>1</amount>
+                    <name>head</name>
+                </item>
+                <item itemId="_i16">
+                    <amount>1</amount>
+                    <name>body</name>
+                </item>
+                <item itemId="_i17">
+                    <amount>1</amount>
+                    <name>boots</name>
+                </item>
+                <item itemId="_i7">
+                    <amount>5</amount>
+                    <name>apple</name>
+                </item>
+            </equipment>
+        </creature>
+        <creature raceId="_r6" typeId="_c0" team="czerwony" role="noob">
+            <nick>Wolf</nick>
+            <race>creature</race>
+            <type>monster</type>
+            <level>10</level>
+            <money>100.12</money>
+            <creationDate>2019-03-19</creationDate>
+            <equipment />
+        </creature>
+        <creature raceId="_r2" typeId="_c2" team="niebieski" role="boss">
+            <nick>Legolas</nick>
+            <race>elf</race>
+            <type>archer</type>
+            <level>30</level>
+            <money>12002341.11</money>
+            <creationDate>2019-03-19</creationDate>
+            <equipment>
+                <item itemId="_i2">
+                    <amount>1</amount>
+                    <name>bow</name>
+                </item>
+                <item itemId="_i18">
+                    <amount>1</amount>
+                    <name>knife</name>
+                </item>
+                <item itemId="_i14">
+                    <amount>1</amount>
+                    <name>legs</name>
+                </item>
+                <item itemId="_i15">
+                    <amount>1</amount>
+                    <name>head</name>
+                </item>
+                <item itemId="_i16">
+                    <amount>1</amount>
+                    <name>body</name>
+                </item>
+                <item itemId="_i17">
+                    <amount>1</amount>
+                    <name>boots</name>
+                </item>
+            </equipment>
+        </creature>
+    </creatures>
+    </main:document>
